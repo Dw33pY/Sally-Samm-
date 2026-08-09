@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    
+    <!-- Primary Meta Tags -->
+    <title>Sally Samm Limited | Construction & Contracting Company in Mombasa, Kenya</title>
+    <meta name="title" content="Sally Samm Limited | Construction & Contracting Company in Mombasa, Kenya" />
+    <meta name="description" content="Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. Experts in general building, civil works, water works, and regravelling." />
+    <meta name="keywords" content="Construction company Mombasa, contractors Kenya, civil works Mombasa, water works Kenya, regravelling, Sally Samm Limited, building contractor Mombasa" />
+    <meta name="author" content="Sally Samm Limited" />
+    <link rel="canonical" href="https://sallysamm.co.ke/" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sallysamm.co.ke/" />
+    <meta property="og:title" content="Sally Samm Limited | Construction & Contracting Company" />
+    <meta property="og:description" content="Building with Integrity, Delivering with Excellence. Experts in general building, civil works, water works, and regravelling in Mombasa, Kenya." />
+    <meta property="og:image" content="https://sallysamm.co.ke/wp-content/uploads/2025/09/SALLYSAMM-logo-2-2.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Sally Samm Limited | Construction & Contracting Company" />
+    <meta property="twitter:description" content="Building with Integrity, Delivering with Excellence. Experts in general building, civil works, water works, and regravelling in Mombasa, Kenya." />
+    <meta property="twitter:image" content="https://sallysamm.co.ke/wp-content/uploads/2025/09/SALLYSAMM-logo-2-2.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://sallysamm.co.ke/wp-content/uploads/2025/09/SALLYSAMM-logo-2-2.png" />
+
+    <!-- Local Business Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "Sally Samm Limited",
+      "image": "https://sallysamm.co.ke/wp-content/uploads/2025/09/SALLYSAMM-logo-2-2.png",
+      "url": "https://sallysamm.co.ke/",
+      "telephone": "+254725178273",
+      "email": "sallysammltd@gmail.com",
+      "priceRange": "KES",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Old Malindi Road",
+        "addressLocality": "Mombasa",
+        "addressCountry": "KE"
+      },
+      "areaServed": "Kenya",
+      "description": "Trusted construction and contracting company based in Mombasa, Kenya. Experts in general building, civil works, water works, and regravelling."
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F70501',
+                        secondary: '#000066',
+                        dark: '#222222',
+                        graytext: '#555555'
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; color: #555; overflow-x: hidden; width: 100%; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; color: #222; }
+        
+        /* Preloader */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #fff; z-index: 9999; display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+        .spinner {
+            width: 50px; height: 50px; border: 5px solid #ddd; border-top-color: #F70501; border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Hero Slider */
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .slide.active { opacity: 1; }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); }
+
+        /* SPA Page Transitions */
+        .page-view { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .page-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed; bottom: 30px; right: 30px; z-index: 50; opacity: 0; visibility: hidden;
+            transition: 0.3s; background: #F70501; color: white; width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        #back-to-top.visible { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body class="bg-white overflow-x-hidden">
+
+    <!-- Preloader -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full z-40 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="#" onclick="navigateTo('home')" class="flex items-center">
+                <img src="https://z-cdn-media.chatglm.cn/files/9c87f7f8-730c-42ec-8fb1-5b8d767659eb.png?auth_key=1886269969-ab11d62e9fff4ab0a429a942b0ef47b8-0-e1a8d5580c7c58afd3d45e90dd6c023e" alt="Sally Samm Logo" class="h-12 w-auto">
+            </a>
+            
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#" onclick="navigateTo('home')" class="text-dark hover:text-primary font-medium transition">Home</a>
+                <a href="#" onclick="navigateTo('about')" class="text-dark hover:text-primary font-medium transition">About Us</a>
+                <a href="#" onclick="navigateTo('services')" class="text-dark hover:text-primary font-medium transition">Our Services</a>
+                <a href="#" onclick="navigateTo('projects')" class="text-dark hover:text-primary font-medium transition">Projects</a>
+                <a href="#" onclick="navigateTo('contact')" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition font-medium">Contact Us</a>
+            </nav>
+
+            <button id="menu-btn" class="lg:hidden text-dark text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t shadow-lg">
+            <nav class="flex flex-col p-4 space-y-4">
+                <a href="#" onclick="navigateTo('home')" class="text-dark hover:text-primary font-medium">Home</a>
+                <a href="#" onclick="navigateTo('about')" class="text-dark hover:text-primary font-medium">About Us</a>
+                <a href="#" onclick="navigateTo('services')" class="text-dark hover:text-primary font-medium">Our Services</a>
+                <a href="#" onclick="navigateTo('projects')" class="text-dark hover:text-primary font-medium">Projects</a>
+                <a href="#" onclick="navigateTo('contact')" class="bg-primary text-white px-6 py-2 rounded-full text-center font-medium">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content (SPA Views) -->
+    <main id="main-content" class="pt-20">
+
+        <!-- ==================== HOME PAGE ==================== -->
+        <section id="page-home" class="page-view active">
+            <!-- Hero Slider -->
+            <div class="relative h-[80vh] min-h-[500px] overflow-hidden">
+                <div class="slide active" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/17-1.png');">
+                    <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Strong Foundations for Beautiful Homes</h1>
+                        <strong class="block text-primary text-xl md:text-2xl mb-4">Sally Samm Limited</strong>
+                        <p class="text-lg mb-8">From design to finishing, we ensure every home blends strength and beauty.</p>
+                        <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp');">
+                    <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Creating Spaces You’ll Love to Live In</h1>
+                        <p class="text-lg mb-8">Functional, modern, and tailored homes that fit your family’s needs.</p>
+                        <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg');">
+                    <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Building More Than Houses, Creating Homes</h1>
+                        <p class="text-lg mb-8">We go beyond construction to deliver lasting comfort and value.</p>
+                        <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
+                    </div>
+                </div>
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+                    <span class="dot w-3 h-3 rounded-full bg-white cursor-pointer transition" onclick="currentSlide(0)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer transition" onclick="currentSlide(1)"></span>
+                    <span class="dot w-3 h-3 rounded-full bg-white/50 cursor-pointer transition" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+
+            <!-- About Snippet -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-primary font-semibold text-lg mb-2">Sally Samm Limited</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Building with Integrity, Delivering with Excellence</h2>
+                        <p class="mb-4 text-graytext">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. With expertise in general building, civil works, water works, and regravelling, we deliver high-quality projects that stand the test of time.</p>
+                        <button onclick="navigateTo('about')" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition">More About Us</button>
+                    </div>
+                    <div class="relative">
+                        <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/Generated-Image-September-10-2025-11_50PM-904x1024.png" alt="Construction Site" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="bg-secondary py-16 relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,102,0.9), rgba(0,0,102,0.9)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/red-gradient-wave-background-vector-43724308.avif'); background-size: cover;">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="10">0</span>+</h2><p>Experience</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="10">0</span>+</h2><p>Completed Projects</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="120">0</span>+</h2><p>Constructions</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="12">0</span>+</h2><p>Running Projects</p></div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12">Why Choose Sally Samm?</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-hard-hat"></i></div>
+                            <h4 class="text-xl font-bold mb-2">Expert Team</h4>
+                            <p class="text-graytext">Highly skilled professionals dedicated to delivering top-tier construction services.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                            <h4 class="text-xl font-bold mb-2">Safety First</h4>
+                            <p class="text-graytext">We adhere to the strictest safety protocols to protect our workers and clients.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-handshake"></i></div>
+                            <h4 class="text-xl font-bold mb-2">Reliable Partner</h4>
+                            <p class="text-graytext">We build trust through transparency, quality work, and timely delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News & Updates Section -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-12 text-center">
+                        <span class="text-primary font-semibold uppercase tracking-wide">Our Updates</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-2">Latest News</h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/bfi_thumb/pexels-photo-5298215-rbn1bg70bursoae86zs01ar4xwme3afq4cukboi42g.jpeg" class="w-full h-48 object-cover" alt="Contractor Matters">
+                            <div class="p-6">
+                                <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Construction</span>
+                                <h4 class="font-bold text-lg mb-2 text-dark">Why Choosing the Right Contractor Matters for Your Dream Home</h4>
+                                <p class="text-sm text-graytext mb-4">Introduction: Building a home is one of the most important investments...</p>
+                                <a href="#" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/bfi_thumb/working-housing-project_1098-17511-1-rbn1ft6216qoj627qdmp3p54594osqqwdxsngw1d7c.avif" class="w-full h-48 object-cover" alt="Civil Works">
+                            <div class="p-6">
+                                <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Architecture</span>
+                                <h4 class="font-bold text-lg mb-2 text-dark">The Role of Civil Works in Building Better Communities</h4>
+                                <p class="text-sm text-graytext mb-4">Introduction: Civil works go beyond roads and bridges—they form the backbone...</p>
+                                <a href="#" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/bfi_thumb/closeup-excavator-construction-site-backhoe-600nw-2458328991-rbn1mkm979zy268l8sv2jhpi01sr6cldnererk0efs.webp" class="w-full h-48 object-cover" alt="Sustainable Homes">
+                            <div class="p-6">
+                                <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Manufacturing</span>
+                                <h4 class="font-bold text-lg mb-2 text-dark">Building Sustainable Homes – The Future of Construction in Kenya</h4>
+                                <p class="text-sm text-graytext mb-4">Introduction: The future of construction is green, and sustainable homes are...</p>
+                                <a href="#" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT PAGE ==================== -->
+        <section id="page-about" class="page-view">
+            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg'); background-size: cover;">
+                <h1 class="text-4xl md:text-5xl font-bold text-white">About Us</h1>
+            </div>
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                        <p class="text-graytext mb-4">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. With expertise in general building, civil works, water works, and regravelling, we deliver high-quality projects that stand the test of time.</p>
+                        <p class="text-graytext mb-4">Our dedication to professionalism, safety, and innovation makes us the partner of choice for clients across the region. We specialize in delivering construction solutions that enhance infrastructure, support communities, and promote sustainable growth.</p>
+                    </div>
+                    <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/Generated-Image-September-10-2025-11_50PM-904x1024.png" alt="About Sally Samm" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+                    <div class="bg-white p-8 rounded-lg shadow-md border-t-4 border-primary">
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Our Mission</h3>
+                        <p class="text-graytext">To deliver exceptional construction solutions that enhance infrastructure, support communities, and promote sustainable growth across Kenya.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md border-t-4 border-primary">
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Our Vision</h3>
+                        <p class="text-graytext">To be the leading construction and contracting company in East Africa, recognized for our integrity, innovation, and commitment to quality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SERVICES PAGE ==================== -->
+        <section id="page-services" class="page-view">
+            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image-2.jpg'); background-size: cover;">
+                <h1 class="text-4xl md:text-5xl font-bold text-white">Our Services</h1>
+            </div>
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 space-y-16">
+                    <!-- Service 1 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image1.jpg" alt="General Building" class="rounded-lg shadow-xl w-full h-72 object-cover">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-secondary">1. General Building</h3>
+                            <p class="text-graytext mb-4">We design, construct, and renovate residential, commercial, and industrial buildings. Our team ensures every structure is built to the highest standards of quality and durability, tailored to meet the specific needs of our clients.</p>
+                            <button onclick="navigateTo('contact')" class="text-primary font-semibold hover:underline">Request Service <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="md:order-2"><img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image-2.jpg" alt="Civil Works" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
+                        <div class="md:order-1">
+                            <h3 class="text-2xl font-bold mb-4 text-secondary">2. Civil Works</h3>
+                            <p class="text-graytext mb-4">From road construction to drainage systems, we handle large-scale civil engineering projects with precision. We are equipped to deliver infrastructure that supports community growth and economic development.</p>
+                            <button onclick="navigateTo('contact')" class="text-primary font-semibold hover:underline">Request Service <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image-3.jpg" alt="Water Works" class="rounded-lg shadow-xl w-full h-72 object-cover">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-secondary">3. Water Works</h3>
+                            <p class="text-graytext mb-4">We provide reliable water supply systems, borehole drilling, and drainage solutions for residential and commercial properties. Ensuring access to clean and sustainable water resources is a core part of our infrastructure commitment.</p>
+                            <button onclick="navigateTo('contact')" class="text-primary font-semibold hover:underline">Request Service <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="md:order-2"><img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/project-2.jpg" alt="Regravelling" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
+                        <div class="md:order-1">
+                            <h3 class="text-2xl font-bold mb-4 text-secondary">4. Regravelling</h3>
+                            <p class="text-graytext mb-4">We offer professional regravelling services to restore and maintain gravel roads and pathways. This service improves accessibility, prevents erosion, and extends the lifespan of rural and estate road networks.</p>
+                            <button onclick="navigateTo('contact')" class="text-primary font-semibold hover:underline">Request Service <i class="fas fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS PAGE ==================== -->
+        <section id="page-projects" class="page-view">
+            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg'); background-size: cover;">
+                <h1 class="text-4xl md:text-5xl font-bold text-white">Our Projects</h1>
+            </div>
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap justify-center space-x-4 mb-12">
+                        <button onclick="filterProjects('all', this)" class="filter-btn active bg-primary text-white px-6 py-2 rounded-full mb-2">All</button>
+                        <button onclick="filterProjects('building', this)" class="filter-btn bg-white text-dark px-6 py-2 rounded-full shadow mb-2">Buildings</button>
+                        <button onclick="filterProjects('civil', this)" class="filter-btn bg-white text-dark px-6 py-2 rounded-full shadow mb-2">Civil/Water</button>
+                    </div>
+                    <!-- Grid -->
+                    <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="project-item building relative rounded-lg overflow-hidden group h-64" data-category="building">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg" class="w-full h-full object-cover" alt="V.O.K">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4></div>
+                        </div>
+                        <div class="project-item building relative rounded-lg overflow-hidden group h-64" data-category="building">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/ATHI-RIVER-SAFARICOM-PENSION-SCHEME-HOUSES.jpg" class="w-full h-full object-cover" alt="Safaricom">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Athi River Safaricom Pension Scheme</h4></div>
+                        </div>
+                        <div class="project-item civil relative rounded-lg overflow-hidden group h-64" data-category="civil">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/SWIMMING-POOL-FOR-MR.jpg" class="w-full h-full object-cover" alt="Pool">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Albert Menzer Pool at Shela Lamu</h4></div>
+                        </div>
+                        <div class="project-item building relative rounded-lg overflow-hidden group h-64" data-category="building">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/project-2.jpg" class="w-full h-full object-cover" alt="Bungalow">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Bungalow in Vipingo</h4></div>
+                        </div>
+                        <div class="project-item building relative rounded-lg overflow-hidden group h-64" data-category="building">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/5-3.jpg" class="w-full h-full object-cover" alt="Mansionettes">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionettes in Vipingo</h4></div>
+                        </div>
+                        <div class="project-item building relative rounded-lg overflow-hidden group h-64" data-category="building">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/VIPINGO-PALM-BRIDGE-APARTMENTS.png" class="w-full h-full object-cover" alt="Palm Bridge">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Vipingo Palm Bridge Apartments</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT PAGE ==================== -->
+        <section id="page-contact" class="page-view">
+            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp'); background-size: cover;">
+                <h1 class="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
+            </div>
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+                    <!-- Form -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
+                        <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-1">Name</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-1">Email</label>
+                                <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-1">Subject</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-dark mb-1">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-secondary transition w-full">Send Message</button>
+                        </form>
+                    </div>
+                    <!-- Info -->
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-red-100 text-primary rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                                <div><h4 class="font-bold text-dark">Location</h4><p class="text-graytext">Old Malindi Road, Mombasa, Kenya</p></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-red-100 text-primary rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-envelope"></i></div>
+                                <div><h4 class="font-bold text-dark">Email Us</h4><a href="mailto:sallysammltd@gmail.com" class="text-graytext hover:text-primary">sallysammltd@gmail.com</a></div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-red-100 text-primary rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-phone-alt"></i></div>
+                                <div><h4 class="font-bold text-dark">Call Us</h4><a href="tel:+254725178273" class="text-graytext hover:text-primary">+254 725 178 273</a></div>
+                            </div>
+                        </div>
+                        <!-- Map -->
+                        <div class="mt-8 rounded-lg overflow-hidden shadow-lg h-64 bg-gray-200">
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31780.54678813!2d39.652!3d-4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1840123456789ab%3A0x123456789abcdef!2sMombasa!5e0!3m2!1sen!2ske!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <img src="https://z-cdn-media.chatglm.cn/files/9c87f7f8-730c-42ec-8fb1-5b8d767659eb.png?auth_key=1886269969-ab11d62e9fff4ab0a429a942b0ef47b8-0-e1a8d5580c7c58afd3d45e90dd6c023e" alt="Sally Samm Logo" class="h-16 w-auto mb-4 brightness-0 invert">
+                <p class="text-sm text-gray-300">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya.</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-white hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white hover:text-primary transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-primary transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#" onclick="navigateTo('about')" class="hover:text-primary transition">About Us</a></li>
+                    <li><a href="#" onclick="navigateTo('services')" class="hover:text-primary transition">Our Services</a></li>
+                    <li><a href="#" onclick="navigateTo('projects')" class="hover:text-primary transition">Our Projects</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Support</h4>
+                <ul class="space-y-2 text-gray-300">
+                    <li><a href="#" onclick="navigateTo('contact')" class="hover:text-primary transition">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4">Get In Touch</h4>
+                <ul class="space-y-3 text-gray-300 text-sm">
+                    <li class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i><span>Old Malindi Road, Mombasa, Kenya</span></li>
+                    <li class="flex items-start"><i class="fas fa-envelope text-primary mt-1 mr-3"></i><a href="mailto:sallysammltd@gmail.com" class="hover:text-primary transition">sallysammltd@gmail.com</a></li>
+                    <li class="flex items-start"><i class="fas fa-phone-alt text-primary mt-1 mr-3"></i><a href="tel:+254725178273" class="hover:text-primary transition">+254 725 178 273</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-center items-center gap-2 text-center text-gray-400 text-sm px-4">
+            <p>Copyright &copy; <span id="year"></span> Sally Samm Limited. All Rights Reserved.</p>
+            <span class="hidden sm:inline">|</span>
+            <p>Designed & Developed by <a href="https://Dw33pY.netlify.app" target="_blank" class="text-primary hover:underline font-semibold">Dw33pY</a></p>
+        </div>
+    </footer>
+
+    <div id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></div>
+
+    <script>
+        // --- Preloader ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => preloader.classList.add('hidden'), 500);
+        });
+
+        // --- SPA Router ---
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            document.getElementById(`page-${pageId}`).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Re-trigger counters if on home
+            if(pageId === 'home') {
+                setTimeout(initCounters, 500);
+            }
+        }
+
+        // --- Mobile Menu ---
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // --- Hero Slider ---
+        let slideIndex = 0;
+        let slideTimer;
+        const slides = document.querySelectorAll('#page-home .slide');
+        const dots = document.querySelectorAll('#page-home .dot');
+        
+        function showSlides() {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => { d.classList.remove('bg-white'); d.classList.add('bg-white/50'); });
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('bg-white');
+            dots[slideIndex].classList.remove('bg-white/50');
+            
+            slideIndex++;
+            if (slideIndex >= slides.length) slideIndex = 0;
+            
+            clearTimeout(slideTimer);
+            slideTimer = setTimeout(showSlides, 5000);
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+        
+        if(slides.length > 0) {
+            showSlides(); // Start slider immediately
+        }
+
+        // --- Animated Counters ---
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                // Reset to 0 before counting
+                counter.innerText = 0;
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 20); // update every 20ms
+                
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+        
+        // Run counters on initial load
+        setTimeout(initCounters, 1000);
+
+        // --- Project Filtering ---
+        function filterProjects(category, btn) {
+            const items = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(b => {
+                b.classList.remove('active', 'bg-primary', 'text-white');
+                b.classList.add('bg-white', 'text-dark', 'shadow');
+            });
+            btn.classList.add('active', 'bg-primary', 'text-white');
+            btn.classList.remove('bg-white', 'text-dark', 'shadow');
+
+            items.forEach(item => {
+                if(category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // --- Contact Form Handler ---
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out! Sally Samm Limited will get back to you shortly.');
+            e.target.reset();
+        }
+
+        // --- Back to Top Button ---
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
