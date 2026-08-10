@@ -82,7 +82,7 @@
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Open Sans', sans-serif; color: #555; overflow-x: hidden; width: 100%; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; color: #222; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; color: #333; }
         
         /* Preloader */
         #preloader {
@@ -103,7 +103,7 @@
             display: flex; align-items: center; justify-content: center;
         }
         .slide.active { opacity: 1; }
-        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); }
+        .slide::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.65); }
 
         /* SPA Page Transitions */
         .page-view { display: none; animation: fadeIn 0.5s ease-in-out; }
@@ -165,23 +165,23 @@
             <div class="relative h-[80vh] min-h-[500px] overflow-hidden">
                 <div class="slide active" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/17-1.png');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
-                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Strong Foundations for Beautiful Homes</h1>
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4 text-white">Strong Foundations for Beautiful Homes</h1>
                         <strong class="block text-primary text-xl md:text-2xl mb-4">Sally Samm Limited</strong>
-                        <p class="text-lg mb-8">From design to finishing, we ensure every home blends strength and beauty.</p>
+                        <p class="text-lg mb-8 font-semibold text-white">From design to finishing, we ensure every home blends strength and beauty.</p>
                         <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
                 </div>
                 <div class="slide" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
-                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Creating Spaces You’ll Love to Live In</h1>
-                        <p class="text-lg mb-8">Functional, modern, and tailored homes that fit your family’s needs.</p>
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4 text-white">Creating Spaces You’ll Love to Live In</h1>
+                        <p class="text-lg mb-8 font-semibold text-white">Functional, modern, and tailored homes that fit your family’s needs.</p>
                         <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
                 </div>
                 <div class="slide" style="background-image: url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
-                        <h1 class="text-3xl md:text-6xl font-bold mb-4">Building More Than Houses, Creating Homes</h1>
-                        <p class="text-lg mb-8">We go beyond construction to deliver lasting comfort and value.</p>
+                        <h1 class="text-3xl md:text-6xl font-bold mb-4 text-white">Building More Than Houses, Creating Homes</h1>
+                        <p class="text-lg mb-8 font-semibold text-white">We go beyond construction to deliver lasting comfort and value.</p>
                         <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h3 class="text-primary font-semibold text-lg mb-2">Sally Samm Limited</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Building with Integrity, Delivering with Excellence</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-dark">Building with Integrity, Delivering with Excellence</h2>
                         <p class="mb-4 text-graytext">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. With expertise in general building, civil works, water works, and regravelling, we deliver high-quality projects that stand the test of time.</p>
                         <button onclick="navigateTo('about')" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition">More About Us</button>
                     </div>
@@ -210,43 +210,111 @@
             <!-- Stats Section -->
             <div class="bg-secondary py-16 relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,102,0.9), rgba(0,0,102,0.9)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/red-gradient-wave-background-vector-43724308.avif'); background-size: cover;">
                 <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="10">0</span>+</h2><p>Experience</p></div>
-                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="10">0</span>+</h2><p>Completed Projects</p></div>
-                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="120">0</span>+</h2><p>Constructions</p></div>
-                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2"><span class="counter" data-target="12">0</span>+</h2><p>Running Projects</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="10">0</span>+</h2><p>Experience</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="10">0</span>+</h2><p>Completed Projects</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="120">0</span>+</h2><p>Constructions</p></div>
+                    <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="12">0</span>+</h2><p>Running Projects</p></div>
                 </div>
             </div>
 
             <!-- Why Choose Us -->
             <div class="py-20 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-4 text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-12">Why Choose Sally Samm?</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-dark">Why Choose Sally Samm?</h2>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="bg-white p-8 rounded-lg shadow-md">
                             <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-hard-hat"></i></div>
-                            <h4 class="text-xl font-bold mb-2">Expert Team</h4>
+                            <h4 class="text-xl font-bold mb-2 text-dark">Expert Team</h4>
                             <p class="text-graytext">Highly skilled professionals dedicated to delivering top-tier construction services.</p>
                         </div>
                         <div class="bg-white p-8 rounded-lg shadow-md">
                             <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-shield-alt"></i></div>
-                            <h4 class="text-xl font-bold mb-2">Safety First</h4>
+                            <h4 class="text-xl font-bold mb-2 text-dark">Safety First</h4>
                             <p class="text-graytext">We adhere to the strictest safety protocols to protect our workers and clients.</p>
                         </div>
                         <div class="bg-white p-8 rounded-lg shadow-md">
                             <div class="w-16 h-16 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-handshake"></i></div>
-                            <h4 class="text-xl font-bold mb-2">Reliable Partner</h4>
+                            <h4 class="text-xl font-bold mb-2 text-dark">Reliable Partner</h4>
                             <p class="text-graytext">We build trust through transparency, quality work, and timely delivery.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Services Snippet -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-12">
+                        <span class="text-primary font-semibold uppercase tracking-wide">What We Offer</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-2 text-dark">Our Core Services</h2>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div class="text-center p-6 border rounded-lg hover:shadow-lg transition">
+                            <div class="w-14 h-14 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-xl mb-4"><i class="fas fa-building"></i></div>
+                            <h4 class="text-lg font-bold mb-2 text-secondary">General Building</h4>
+                            <p class="text-sm text-graytext">Residential, commercial, and industrial buildings.</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg hover:shadow-lg transition">
+                            <div class="w-14 h-14 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-xl mb-4"><i class="fas fa-road"></i></div>
+                            <h4 class="text-lg font-bold mb-2 text-secondary">Civil Works</h4>
+                            <p class="text-sm text-graytext">Roads, drainage, and large-scale infrastructure.</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg hover:shadow-lg transition">
+                            <div class="w-14 h-14 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-xl mb-4"><i class="fas fa-tint"></i></div>
+                            <h4 class="text-lg font-bold mb-2 text-secondary">Water Works</h4>
+                            <p class="text-sm text-graytext">Boreholes, water supply, and drainage systems.</p>
+                        </div>
+                        <div class="text-center p-6 border rounded-lg hover:shadow-lg transition">
+                            <div class="w-14 h-14 mx-auto bg-red-100 text-primary rounded-full flex items-center justify-center text-xl mb-4"><i class="fas fa-truck-monster"></i></div>
+                            <h4 class="text-lg font-bold mb-2 text-secondary">Regravelling</h4>
+                            <p class="text-sm text-graytext">Restoring gravel roads and pathways.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Projects Snippet -->
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="flex flex-wrap justify-between items-center mb-12">
+                        <div>
+                            <span class="text-primary font-semibold uppercase tracking-wide">Our Portfolio</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-dark">Featured Projects</h2>
+                        </div>
+                        <button onclick="navigateTo('projects')" class="hidden md:inline-block bg-secondary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary transition">View All Projects</button>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="relative rounded-lg overflow-hidden group h-64">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg" class="w-full h-full object-cover" alt="V.O.K">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4></div>
+                        </div>
+                        <div class="relative rounded-lg overflow-hidden group h-64">
+                            <img src="https://z-cdn-media.chatglm.cn/files/bc304f1b-9ae8-4a64-8910-eeafc917cf98.jpg?auth_key=1886387143-f001d550ecb044198765f3a3c6442999-0-8142469b525ff1ecefd63ed10eb75048" class="w-full h-full object-cover" alt="Mansionate">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionate in Vipingo</h4></div>
+                        </div>
+                        <div class="relative rounded-lg overflow-hidden group h-64">
+                            <img src="https://z-cdn-media.chatglm.cn/files/1b741f7b-d7bc-4073-8c78-caecc4044cc1.jpg?auth_key=1886387143-508deba24eaf4352addf7375af468110-0-4a5bae0605e957468e3ba32925a3c786" class="w-full h-full object-cover" alt="Pool">
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Swimming Pool for Mr. Rama in Lamu</h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <section class="py-20 bg-primary text-white text-center relative" style="background-image: linear-gradient(rgba(247, 5, 1, 0.9), rgba(247, 5, 1, 0.9)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg'); background-size: cover; background-attachment: fixed;">
+                <div class="max-w-4xl mx-auto px-4">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Ready to Build Your Dream Project?</h2>
+                    <p class="text-lg mb-8">Partner with Sally Samm Limited for reliable, high-quality construction solutions tailored to your needs.</p>
+                    <button onclick="navigateTo('contact')" class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-secondary hover:text-white transition text-lg">Contact Us Now</button>
+                </div>
+            </section>
+
             <!-- News & Updates Snippet -->
             <div class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mb-12 text-center">
                         <span class="text-primary font-semibold uppercase tracking-wide">Our Updates</span>
-                        <h2 class="text-3xl md:text-4xl font-bold mt-2">Latest News</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mt-2 text-dark">Latest News</h2>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -286,13 +354,13 @@
 
         <!-- ==================== ABOUT PAGE ==================== -->
         <section id="page-about" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/4-3.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">About Us</h1>
             </div>
             <div class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                        <h2 class="text-3xl font-bold mb-6 text-dark">Our Story</h2>
                         <p class="text-graytext mb-4">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. With expertise in general building, civil works, water works, and regravelling, we deliver high-quality projects that stand the test of time.</p>
                         <p class="text-graytext mb-4">Our dedication to professionalism, safety, and innovation makes us the partner of choice for clients across the region. We specialize in delivering construction solutions that enhance infrastructure, support communities, and promote sustainable growth.</p>
                     </div>
@@ -315,7 +383,7 @@
 
         <!-- ==================== SERVICES PAGE ==================== -->
         <section id="page-services" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image-2.jpg'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/Sallysam-image-2.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Our Services</h1>
             </div>
             <div class="py-20 bg-white">
@@ -362,7 +430,7 @@
 
         <!-- ==================== PROJECTS PAGE ==================== -->
         <section id="page-projects" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Our Projects</h1>
             </div>
             <div class="py-20 bg-gray-50">
@@ -375,49 +443,101 @@
                     </div>
                     <!-- Grid -->
                     <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Completed Projects -->
+                        
+                        <!-- 12 Completed Projects -->
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg" class="w-full h-full object-cover" alt="V.O.K">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/PROJECT-1.jpg" class="w-full h-full object-cover" alt="Residential Apartments in V.O.K">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4></div>
                         </div>
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/ATHI-RIVER-SAFARICOM-PENSION-SCHEME-HOUSES.jpg" class="w-full h-full object-cover" alt="Safaricom">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/ATHI-RIVER-SAFARICOM-PENSION-SCHEME-HOUSES.jpg" class="w-full h-full object-cover" alt="Athi River Safaricom Pension Scheme">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Athi River Safaricom Pension Scheme</h4></div>
                         </div>
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/SWIMMING-POOL-FOR-MR.jpg" class="w-full h-full object-cover" alt="Pool">
-                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Albert Menzer Pool at Shela Lamu</h4></div>
-                        </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/project-2.jpg" class="w-full h-full object-cover" alt="Bungalow">
+                            <img src="https://z-cdn-media.chatglm.cn/files/3b21e125-89ed-4b88-b982-a0f74c663c96.jpg?auth_key=1886387143-f5452c55bebc48f18a04e0e630503f11-0-7882488ac9347c21705c8ba5229efd9b" class="w-full h-full object-cover" alt="Bungalow in Vipingo">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Bungalow in Vipingo</h4></div>
                         </div>
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/5-3.jpg" class="w-full h-full object-cover" alt="Mansionettes">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/5-3.jpg" class="w-full h-full object-cover" alt="Mansionettes in Vipingo">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionettes in Vipingo</h4></div>
                         </div>
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/VIPINGO-PALM-BRIDGE-APARTMENTS.png" class="w-full h-full object-cover" alt="Palm Bridge">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/VIPINGO-PALM-BRIDGE-APARTMENTS.png" class="w-full h-full object-cover" alt="Vipingo Palm Bridge Apartments">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Vipingo Palm Bridge Apartments</h4></div>
                         </div>
-                        
-                        <!-- Ongoing Projects (Added based on your stats) -->
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/SWIMMING-POOL-FOR-MR.jpg" class="w-full h-full object-cover" alt="Albert menzer at Shela Lamu">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Albert menzer at Shela Lamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://z-cdn-media.chatglm.cn/files/1b741f7b-d7bc-4073-8c78-caecc4044cc1.jpg?auth_key=1886387143-508deba24eaf4352addf7375af468110-0-4a5bae0605e957468e3ba32925a3c786" class="w-full h-full object-cover" alt="Swimming Pool for Mr. Rama in Lamu">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Swimming Pool for Mr. Rama in Lamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://z-cdn-media.chatglm.cn/files/bc304f1b-9ae8-4a64-8910-eeafc917cf98.jpg?auth_key=1886387143-f001d550ecb044198765f3a3c6442999-0-8142469b525ff1ecefd63ed10eb75048" class="w-full h-full object-cover" alt="Mansionate in Vipingo">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionate in Vipingo</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://z-cdn-media.chatglm.cn/files/c0b5e8c8-7589-4781-9dc5-a48206c11a99.jpg?auth_key=1886387143-53c4784196cd440e9468a869e97a7d04-0-af44d05008805969cff42ffcc1b68632" class="w-full h-full object-cover" alt="Terrazzo done in Watamu">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo done in Watamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://z-cdn-media.chatglm.cn/files/f9a34c57-c407-46e0-b581-c9fdd43a9ed4.jpg?auth_key=1886387143-28dcce1ed57e45de9bbd8d3e6754d08c-0-72d7a3a032f149867131a902d7e9c715" class="w-full h-full object-cover" alt="Terrazzo Finishing in Watamu">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo Finishing in Watamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://z-cdn-media.chatglm.cn/files/9bf2bc58-9d38-40f3-af47-cbce718e36cc.jpg?auth_key=1886387143-75df6e10cae44ee3b38e49157a1db885-0-b49ed0891b4cbecad1417bcbebfbad98" class="w-full h-full object-cover" alt="NIRU done in Watamu">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">NIRU done in Watamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Pension Scheme">
+                            <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Pension Scheme</h4></div>
+                        </div>
+
+                        <!-- 6 Ongoing Projects -->
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/17-1.png" class="w-full h-full object-cover" alt="Ongoing Project">
+                            <img src="https://z-cdn-media.chatglm.cn/files/d309cae9-23d7-4f5a-9761-420f30b0c38f.jpg?auth_key=1886387143-2afeed289a8049d6bae98aa524d4cdc6-0-248a1cd35a3dff1b0a665c7e6371baef" class="w-full h-full object-cover" alt="Nlru Work In Watamu">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Modern Estate Development</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Nlru Work In Watamu</h4></div>
                         </div>
                         <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img src="https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp" class="w-full h-full object-cover" alt="Ongoing Project">
+                            <img src="https://z-cdn-media.chatglm.cn/files/c4b6e986-b638-458f-801e-87d04929869d.jpg?auth_key=1886387143-171ae7be63204fdcbd601051c21cf403-0-64166c4be52c52623d3b9c8e368e541b" class="w-full h-full object-cover" alt="Gate House Vipingo">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Family Housing Project Phase 2</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Gate House Vipingo</h4></div>
                         </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
+                            <img src="https://z-cdn-media.chatglm.cn/files/98f435af-189c-4688-9b0a-9be2a1ef02d9.jpg?auth_key=1886387143-659436eb66af45b5a3bc600268c03113-0-9c8992b829471001252759b4cfadfc95" class="w-full h-full object-cover" alt="Residential Apartment in V.O.K">
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartment in V.O.K</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
+                            <img src="https://z-cdn-media.chatglm.cn/files/d02999e9-ecde-4153-a6c9-07dd7a576ffc.jpg?auth_key=1886387143-e572eceb2c8043beb4cd0e0180f2d827-0-94abfd25668f4cb3f33e4f16ae261cc3" class="w-full h-full object-cover" alt="Residential Pool in Watamu">
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Pool in Watamu</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
+                            <img src="https://z-cdn-media.chatglm.cn/files/9f7105aa-795a-4084-a060-6163636225f6.jpg?auth_key=1886387476-d020721b829145688a3d56c9524bc99d-0-eda93f6e614c8f7466665fcc87b59ef4" class="w-full h-full object-cover" alt="Adu Catholic Missionary Nursery School">
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Catholic Missionary Nursery School</h4></div>
+                        </div>
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
+                            <img src="https://z-cdn-media.chatglm.cn/files/61001b18-7ca9-4218-b6e7-293971a66e6a.jpg?auth_key=1886387476-5cde082a27c4407eaa09db83ab626bbf-0-6336c45e0504ff9cd84cacc07a5b1a8b" class="w-full h-full object-cover" alt="Adu Consolata Parish Priest House">
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
+                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Consolata Parish Priest House</h4></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -425,7 +545,7 @@
 
         <!-- ==================== NEWS PAGE ==================== -->
         <section id="page-news" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/bfi_thumb/working-housing-project_1098-17511-1-rbn1ft6216qoj627qdmp3p54594osqqwdxsngw1d7c.avif'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sallysamm.co.ke/wp-content/uploads/bfi_thumb/working-housing-project_1098-17511-1-rbn1ft6216qoj627qdmp3p54594osqqwdxsngw1d7c.avif'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">News & Updates</h1>
             </div>
             <div class="py-20 bg-gray-50">
@@ -442,7 +562,7 @@
                                 </div>
                                 <h4 class="font-bold text-xl mb-3 text-dark">Why Choosing the Right Contractor Matters for Your Dream Home</h4>
                                 <p class="text-sm text-graytext mb-6 flex-grow">Introduction: Building a home is one of the most important investments you will ever make. Choosing the right contractor determines whether the process is smooth or stressful...</p>
-                                <a href="#" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                                <a href="https://sallysamm.co.ke/2020/11/14/models-oem-solution-simul-corporation-2020/" target="_blank" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
                             </div>
                         </div>
                         <!-- News Item 2 -->
@@ -456,7 +576,7 @@
                                 </div>
                                 <h4 class="font-bold text-xl mb-3 text-dark">The Role of Civil Works in Building Better Communities</h4>
                                 <p class="text-sm text-graytext mb-6 flex-grow">Introduction: Civil works go beyond roads and bridges—they form the backbone of functional communities. Proper infrastructure drives economic growth and improves quality of life...</p>
-                                <a href="#" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                                <a href="https://sallysamm.co.ke/2020/11/12/models-oem-solution-simul-corporation-2021/" target="_blank" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
                             </div>
                         </div>
                         <!-- News Item 3 -->
@@ -470,7 +590,7 @@
                                 </div>
                                 <h4 class="font-bold text-xl mb-3 text-dark">Building Sustainable Homes – The Future of Construction in Kenya</h4>
                                 <p class="text-sm text-graytext mb-6 flex-grow">Introduction: The future of construction is green, and sustainable homes are leading the way. Discover how eco-friendly materials are changing Kenya's landscape...</p>
-                                <a href="#" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
+                                <a href="https://sallysamm.co.ke/2020/11/10/models-oem-solution-simul-corporation/" target="_blank" class="text-primary font-semibold text-sm hover:underline mt-auto">Read Full Article <i class="fas fa-arrow-right ml-1"></i></a>
                             </div>
                         </div>
                     </div>
@@ -480,14 +600,14 @@
 
         <!-- ==================== CONTACT PAGE ==================== -->
         <section id="page-contact" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] bg-secondary flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,102,0.8), rgba(0,0,102,0.8)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sallysamm.co.ke/wp-content/uploads/2025/09/homeowner-boxes-and-family-children-footage-254144937_iconl.webp'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
             </div>
             <div class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
                     <!-- Form -->
                     <div>
-                        <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
+                        <h2 class="text-3xl font-bold mb-6 text-dark">Send a Message</h2>
                         <form id="contact-form" class="space-y-4" onsubmit="handleSubmit(event)">
                             <div>
                                 <label class="block text-sm font-medium text-dark mb-1">Name</label>
@@ -510,7 +630,7 @@
                     </div>
                     <!-- Info -->
                     <div>
-                        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                        <h2 class="text-3xl font-bold mb-6 text-dark">Get In Touch</h2>
                         <div class="space-y-6">
                             <div class="flex items-start space-x-4">
                                 <div class="w-12 h-12 bg-red-100 text-primary rounded-full flex items-center justify-center text-xl flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
@@ -550,7 +670,7 @@
                 </div>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                <h4 class="text-lg font-bold mb-4 text-white">Quick Links</h4>
                 <ul class="space-y-2 text-gray-300">
                     <li><a href="#" onclick="navigateTo('about')" class="hover:text-primary transition">About Us</a></li>
                     <li><a href="#" onclick="navigateTo('services')" class="hover:text-primary transition">Our Services</a></li>
@@ -559,14 +679,14 @@
                 </ul>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4">Support</h4>
+                <h4 class="text-lg font-bold mb-4 text-white">Support</h4>
                 <ul class="space-y-2 text-gray-300">
                     <li><a href="#" onclick="navigateTo('contact')" class="hover:text-primary transition">Contact Us</a></li>
                     <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4">Get In Touch</h4>
+                <h4 class="text-lg font-bold mb-4 text-white">Get In Touch</h4>
                 <ul class="space-y-3 text-gray-300 text-sm">
                     <li class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i><span>Old Malindi Road, Mombasa, Kenya</span></li>
                     <li class="flex items-start"><i class="fas fa-envelope text-primary mt-1 mr-3"></i><a href="mailto:sallysammltd@gmail.com" class="hover:text-primary transition">sallysammltd@gmail.com</a></li>
@@ -603,7 +723,7 @@
             
             // Re-trigger counters if on home
             if(pageId === 'home') {
-                setTimeout(initCounters, 500);
+                setTimeout(initStatsObserver, 300);
             }
         }
 
@@ -642,32 +762,42 @@
             showSlides(); // Start slider immediately
         }
 
-        // --- Animated Counters ---
-        function initCounters() {
-            const counters = document.querySelectorAll('.counter');
+        // --- Animated Counters (Intersection Observer) ---
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const speed = Math.max(1, Math.floor(target / 30)); 
+                    
+                    counter.innerText = '0';
+                    
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < target) {
+                            counter.innerText = count;
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(counter); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% visible
+
+        function initStatsObserver() {
+            const counters = document.querySelectorAll('#page-home .counter');
             counters.forEach(counter => {
-                // Reset to 0 before counting
-                counter.innerText = 0;
-                const target = +counter.getAttribute('data-target');
-                let count = 0;
-                const duration = 2000; // 2 seconds
-                const increment = target / (duration / 20); // update every 20ms
-                
-                const updateCount = () => {
-                    count += increment;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
+                counter.innerText = '0';
+                counterObserver.observe(counter);
             });
         }
-        
-        // Run counters on initial load
-        setTimeout(initCounters, 1000);
+
+        // Run observer setup on initial load
+        initStatsObserver();
 
         // --- Project Filtering (Completed vs Ongoing) ---
         function filterProjects(status, btn) {
