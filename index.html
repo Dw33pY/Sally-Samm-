@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
@@ -23,16 +23,16 @@
     <meta property="og:url" content="https://sallysamm.co.ke/" />
     <meta property="og:title" content="Sally Samm Limited | Construction & Contracting Company" />
     <meta property="og:description" content="Building with Integrity, Delivering with Excellence. Experts in general building, civil works, water works, and regravelling in Mombasa, Kenya." />
-    <meta property="og:image" content="https://z-cdn-media.chatglm.cn/files/9e57a8a8-1bf6-46c8-b43e-70170d759564.png?auth_key=1886482353-4b38c6f00cfc4390bfd4495558d4ff85-0-45b93ee4c77eea457f4e320469b41088" />
+    <meta property="og:image" content="public/images/sally-samm-logo.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Sally Samm Limited | Construction & Contracting Company" />
     <meta property="twitter:description" content="Building with Integrity, Delivering with Excellence. Experts in general building, civil works, water works, and regravelling in Mombasa, Kenya." />
-    <meta property="twitter:image" content="https://z-cdn-media.chatglm.cn/files/9e57a8a8-1bf6-46c8-b43e-70170d759564.png?auth_key=1886482353-4b38c6f00cfc4390bfd4495558d4ff85-0-45b93ee4c77eea457f4e320469b41088" />
+    <meta property="twitter:image" content="public/images/sally-samm-logo.png" />
 
-    <!-- Favicon (New Browser Tab Icon) -->
-    <link rel="icon" type="image/png" href="https://z-cdn-media.chatglm.cn/files/f8fa5f01-896e-489e-ad60-f4d391b0036a.png?auth_key=1886699157-a3d5457eb0034d84a41724c0b78eb83f-0-5fa69b2a3f415378d7d3bf80f44e6c7f" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/images/image-37.png" />
 
     <!-- Local Business Schema for SEO -->
     <script type="application/ld+json">
@@ -40,7 +40,7 @@
       "@context": "https://schema.org",
       "@type": "GeneralContractor",
       "name": "Sally Samm Limited",
-      "image": "https://z-cdn-media.chatglm.cn/files/9e57a8a8-1bf6-46c8-b43e-70170d759564.png?auth_key=1886482353-4b38c6f00cfc4390bfd4495558d4ff85-0-45b93ee4c77eea457f4e320469b41088",
+      "image": "public/images/sally-samm-logo.png",
       "url": "https://sallysamm.co.ke/",
       "telephone": "+254725178273",
       "email": "sallysammltd@gmail.com",
@@ -139,6 +139,45 @@
             display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         #back-to-top.visible { opacity: 1; visibility: visible; }
+
+        /* Lightbox Gallery */
+        #lightbox {
+            position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.95);
+            display: none; align-items: center; justify-content: center; flex-direction: column;
+        }
+        #lightbox.open { display: flex; }
+        #lightbox-img {
+            max-width: 90vw; max-height: 70vh; object-fit: contain; border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .lightbox-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.15); color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s; font-size: 1.5rem;
+        }
+        .lightbox-nav-btn:hover { background: #F70501; }
+        #lightbox-prev { left: 20px; }
+        #lightbox-next { right: 20px; }
+        #lightbox-close {
+            position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.15);
+            color: white; width: 45px; height: 45px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; cursor: pointer; font-size: 1.3rem; transition: 0.3s;
+        }
+        #lightbox-close:hover { background: #F70501; }
+        #lightbox-counter {
+            color: white; font-size: 0.9rem; margin-top: 15px; font-family: 'Poppins', sans-serif;
+        }
+        #lightbox-title {
+            color: white; font-size: 1.1rem; margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-weight: 600;
+        }
+        #lightbox-thumbnails {
+            display: flex; gap: 8px; margin-top: 15px; max-width: 90vw; overflow-x: auto; padding: 10px;
+        }
+        #lightbox-thumbnails img {
+            width: 60px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.5; transition: 0.3s; flex-shrink: 0;
+        }
+        #lightbox-thumbnails img.active { opacity: 1; border: 2px solid #F70501; }
     </style>
 </head>
 <body class="bg-white overflow-x-hidden overflow-hidden">
@@ -146,11 +185,22 @@
     <!-- Preloader -->
     <div id="preloader"><div class="spinner"></div></div>
 
+    <!-- Lightbox Gallery Modal -->
+    <div id="lightbox">
+        <div id="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></div>
+        <div id="lightbox-prev" class="lightbox-nav-btn" onclick="changePhoto(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div id="lightbox-next" class="lightbox-nav-btn" onclick="changePhoto(1)"><i class="fas fa-chevron-right"></i></div>
+        <div id="lightbox-title"></div>
+        <img id="lightbox-img" src="" alt="Project Photo">
+        <div id="lightbox-counter"></div>
+        <div id="lightbox-thumbnails"></div>
+    </div>
+
     <!-- Header -->
     <header id="header" class="fixed top-0 w-full z-40 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center">
-                <img src="https://z-cdn-media.chatglm.cn/files/9e57a8a8-1bf6-46c8-b43e-70170d759564.png?auth_key=1886482353-4b38c6f00cfc4390bfd4495558d4ff85-0-45b93ee4c77eea457f4e320469b41088" alt="Sally Samm Logo" class="h-12 w-auto">
+                <img src="public/images/sally-samm-logo.png" alt="Sally Samm Logo" class="h-12 w-auto">
             </a>
             
             <nav class="hidden lg:flex items-center space-x-8">
@@ -185,7 +235,7 @@
         <section id="page-home" class="page-view active">
             <!-- Hero Slider -->
             <div class="relative h-screen min-h-[600px] overflow-hidden">
-                <div class="slide active" style="background-image: url('https://z-cdn-media.chatglm.cn/files/7a85cb23-79c9-4975-9f6e-061cfda2ad03.png?auth_key=1886482353-675e032c57354db9aa9431d9b303c482-0-aab8f53eda943091608f2efc12a11bfb');">
+                <div class="slide active" style="background-image: url('public/images/image-17.png');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Strong Foundations for Beautiful Homes</h1>
                         <strong class="block text-primary text-xl md:text-2xl mb-4">Sally Samm Limited</strong>
@@ -193,14 +243,14 @@
                         <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop');">
+                <div class="slide" style="background-image: url('public/images/image-1.jpg');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Creating Spaces You’ll Love to Live In</h1>
-                        <p class="text-lg md:text-xl mb-8 font-semibold text-white">Functional, modern, and tailored homes that fit your family’s needs.</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Creating Spaces Youâ€™ll Love to Live In</h1>
+                        <p class="text-lg md:text-xl mb-8 font-semibold text-white">Functional, modern, and tailored homes that fit your familyâ€™s needs.</p>
                         <button onclick="navigateTo('projects')" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">Learn More <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
                 </div>
-                <div class="slide" style="background-image: url('https://z-cdn-media.chatglm.cn/files/97490c47-bc9b-4b50-9560-9fb99186f864.jpg?auth_key=1886482353-1b7a51ca32694bfb973beea2148d1d69-0-757d87f873af440d3ca5a18980e7e896');">
+                <div class="slide" style="background-image: url('public/images/image-21.jpg');">
                     <div class="relative z-10 text-center text-white px-4 max-w-4xl">
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Building More Than Houses, Creating Homes</h1>
                         <p class="text-lg md:text-xl mb-8 font-semibold text-white">We go beyond construction to deliver lasting comfort and value.</p>
@@ -224,13 +274,13 @@
                         <button onclick="navigateTo('about')" class="inline-block bg-secondary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary transition">More About Us</button>
                     </div>
                     <div class="relative">
-                        <img src="https://z-cdn-media.chatglm.cn/files/230567f1-9ede-4a57-91d8-a32b3fb77058.png?auth_key=1886482353-ce9a9f5725974afb8b667035649cba89-0-061bc941797a34a2e2e8aeaca52b8565" alt="Construction Site" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                        <img src="public/images/construction-site.png" alt="Construction Site" class="rounded-lg shadow-2xl w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
 
             <!-- Stats Section -->
-            <div class="bg-secondary py-16 relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,102,0.9), rgba(0,0,102,0.9)), url('https://z-cdn-media.chatglm.cn/files/a7aacff7-2e67-4f91-8f2a-0d672e72e8b5.png?auth_key=1886484106-c9b9a13848104ffa9bdbc0c7f829f40c-0-a76d71acb9ae1e1239336f3a23f96668'); background-size: cover;">
+            <div class="bg-secondary py-16 relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,102,0.9), rgba(0,0,102,0.9)), url('public/images/image-28.png'); background-size: cover;">
                 <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
                     <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="10">0</span>+</h2><p>Experience</p></div>
                     <div><h2 class="text-4xl md:text-5xl font-bold mb-2 text-white"><span class="counter" data-target="10">0</span>+</h2><p>Completed Projects</p></div>
@@ -306,16 +356,20 @@
                         <button onclick="navigateTo('projects')" class="hidden md:inline-block bg-secondary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary transition">View All Projects</button>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
-                        <div class="relative rounded-lg overflow-hidden group h-64">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/0d162881-ea80-4407-8deb-1779224a358b.jpg?auth_key=1886482353-bc7dd9b17f774398975216e1389e10ba-0-bc0e4fe9124e308ee3e6d86572bf0137" class="w-full h-full object-cover" alt="V.O.K">
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4></div>
+                        <div class="relative rounded-lg overflow-hidden group h-64 cursor-pointer" onclick="openLightbox(['public/images/residential-apartment-in-vok.jpg','public/images/residential-apartment-in-vok-1.jpg','public/images/residential-apartment-in-vok-5.jpg','public/images/residential-apartment-in-vok-2.jpg','public/images/residential-apartment-in-vok-4.jpg','public/images/residential-apartment-in-vok-3.jpg','public/images/vok.jpg'], 'Residential Apartment in V.O.K')">
+                            <img loading="lazy" src="public/images/vok.jpg" class="w-full h-full object-cover" alt="V.O.K">
+                            <div class="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full z-10 flex items-center"><i class="fas fa-images mr-1"></i> 7 Photos</div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                <h4 class="text-white text-xl font-bold text-center px-4">Residential Apartment in V.O.K</h4>
+                                <p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view gallery</p>
+                            </div>
                         </div>
-                        <div class="relative rounded-lg overflow-hidden group h-64">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/bc304f1b-9ae8-4a64-8910-eeafc917cf98.jpg?auth_key=1886387143-f001d550ecb044198765f3a3c6442999-0-8142469b525ff1ecefd63ed10eb75048" class="w-full h-full object-cover" alt="Mansionate">
+                        <div class="relative rounded-lg overflow-hidden group h-64 cursor-pointer" onclick="openLightbox(['public/images/mansionate.jpg'], 'Mansionate in Vipingo')">
+                            <img loading="lazy" src="public/images/mansionate.jpg" class="w-full h-full object-cover" alt="Mansionate">
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionate in Vipingo</h4></div>
                         </div>
-                        <div class="relative rounded-lg overflow-hidden group h-64">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/1b741f7b-d7bc-4073-8c78-caecc4044cc1.jpg?auth_key=1886387143-508deba24eaf4352addf7375af468110-0-4a5bae0605e957468e3ba32925a3c786" class="w-full h-full object-cover" alt="Pool">
+                        <div class="relative rounded-lg overflow-hidden group h-64 cursor-pointer" onclick="openLightbox(['public/images/pool.jpg'], 'Swimming Pool for Mr. Rama in Lamu')">
+                            <img loading="lazy" src="public/images/pool.jpg" class="w-full h-full object-cover" alt="Pool">
                             <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Swimming Pool for Mr. Rama in Lamu</h4></div>
                         </div>
                     </div>
@@ -323,7 +377,7 @@
             </div>
 
             <!-- CTA Banner -->
-            <section class="py-20 bg-primary text-white text-center relative" style="background-image: linear-gradient(rgba(247, 5, 1, 0.9), rgba(247, 5, 1, 0.9)), url('https://z-cdn-media.chatglm.cn/files/97490c47-bc9b-4b50-9560-9fb99186f864.jpg?auth_key=1886482353-1b7a51ca32694bfb973beea2148d1d69-0-757d87f873af440d3ca5a18980e7e896'); background-size: cover; background-attachment: fixed;">
+            <section class="py-20 bg-primary text-white text-center relative" style="background-image: linear-gradient(rgba(247, 5, 1, 0.9), rgba(247, 5, 1, 0.9)), url('public/images/image-21.jpg'); background-size: cover; background-attachment: fixed;">
                 <div class="max-w-4xl mx-auto px-4">
                     <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Ready to Build Your Dream Project?</h2>
                     <p class="text-lg mb-8">Partner with Sally Samm Limited for reliable, high-quality construction solutions tailored to your needs.</p>
@@ -340,28 +394,28 @@
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/1c3e9f95-648d-43d3-902a-bfc6c881d903.jpeg?auth_key=1886482353-7f152829848d4d1a89b6397437173824-0-a0947ccc5d121f5bc49a44c0dfd20ed1" class="w-full h-48 object-cover" alt="Contractor Matters">
+                            <img loading="lazy" src="public/images/contractor-matters.jpg" class="w-full h-48 object-cover" alt="Contractor Matters">
                             <div class="p-6">
                                 <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Construction</span>
                                 <h4 class="font-bold text-lg mb-2 text-dark">Why Choosing the Right Contractor Matters for Your Dream Home</h4>
-                                <p class="text-sm text-graytext mb-4">Building a home is one of the most important investments you’ll ever make. But the success of that project depends largely on...</p>
+                                <p class="text-sm text-graytext mb-4">Building a home is one of the most important investments youâ€™ll ever make. But the success of that project depends largely on...</p>
                                 <button onclick="navigateTo('news')" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></button>
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/0949ca55-7d0a-4683-ac39-d7d43d4e3a02.png?auth_key=1886484106-f27d64a3f7134b75ad4aaccce795ba40-0-c13bce29e42f99b4343768660f598fc2" class="w-full h-48 object-cover" alt="Civil Works">
+                            <img loading="lazy" src="public/images/civil-works.png" class="w-full h-48 object-cover" alt="Civil Works">
                             <div class="p-6">
                                 <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Architecture</span>
                                 <h4 class="font-bold text-lg mb-2 text-dark">The Role of Civil Works in Building Better Communities</h4>
-                                <p class="text-sm text-graytext mb-4">Civil works go beyond roads and bridges—they form the backbone...</p>
+                                <p class="text-sm text-graytext mb-4">Civil works go beyond roads and bridgesâ€”they form the backbone...</p>
                                 <button onclick="navigateTo('news')" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></button>
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-48 object-cover" alt="Sustainable Homes">
+                            <img loading="lazy" src="public/images/sustainable-homes.jpg" class="w-full h-48 object-cover" alt="Sustainable Homes">
                             <div class="p-6">
                                 <span class="inline-block bg-primary text-white text-xs px-3 py-1 rounded-full mb-3">Manufacturing</span>
-                                <h4 class="font-bold text-lg mb-2 text-dark">Building Sustainable Homes – The Future of Construction in Kenya</h4>
+                                <h4 class="font-bold text-lg mb-2 text-dark">Building Sustainable Homes â€“ The Future of Construction in Kenya</h4>
                                 <p class="text-sm text-graytext mb-4">The future of construction is green, and sustainable homes are...</p>
                                 <button onclick="navigateTo('news')" class="text-primary font-semibold text-sm hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></button>
                             </div>
@@ -376,7 +430,7 @@
 
         <!-- ==================== ABOUT PAGE ==================== -->
         <section id="page-about" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/97490c47-bc9b-4b50-9560-9fb99186f864.jpg?auth_key=1886482353-1b7a51ca32694bfb973beea2148d1d69-0-757d87f873af440d3ca5a18980e7e896'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/images/image-21.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">About Us</h1>
             </div>
             <div class="py-20 bg-white">
@@ -386,7 +440,7 @@
                         <p class="text-graytext mb-4">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya. With expertise in general building, civil works, water works, and regravelling, we deliver high-quality projects that stand the test of time.</p>
                         <p class="text-graytext mb-4">Our dedication to professionalism, safety, and innovation makes us the partner of choice for clients across the region. We specialize in delivering construction solutions that enhance infrastructure, support communities, and promote sustainable growth.</p>
                     </div>
-                    <img src="https://z-cdn-media.chatglm.cn/files/230567f1-9ede-4a57-91d8-a32b3fb77058.png?auth_key=1886482353-ce9a9f5725974afb8b667035649cba89-0-061bc941797a34a2e2e8aeaca52b8565" alt="About Sally Samm" class="rounded-lg shadow-xl w-full h-auto">
+                    <img src="public/images/construction-site.png" alt="About Sally Samm" class="rounded-lg shadow-xl w-full h-auto">
                 </div>
             </div>
             <div class="py-20 bg-gray-50">
@@ -405,13 +459,13 @@
 
         <!-- ==================== SERVICES PAGE ==================== -->
         <section id="page-services" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/787242f1-24e3-4e4b-9178-0e19f85409f0.jpg?auth_key=1886484106-094c9ef977a843db9568fa26d65b2eed-0-08a81303fdea62f0228d982056b3d8c3'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/images/civil-works.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Our Services</h1>
             </div>
             <div class="py-20 bg-white">
                 <div class="max-w-7xl mx-auto px-4 space-y-16">
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/86638083-d6fc-4791-9312-a3991a67f1b3.jpg?auth_key=1886484106-4a87e7f858204e65b56a2a766de77004-0-1dc4716121b5affc4b0095cb2cd33bcd" alt="General Building" class="rounded-lg shadow-xl w-full h-72 object-cover">
+                        <img loading="lazy" src="public/images/general-building.jpg" alt="General Building" class="rounded-lg shadow-xl w-full h-72 object-cover">
                         <div>
                             <h3 class="text-2xl font-bold mb-4 text-secondary">1. General Building</h3>
                             <p class="text-graytext mb-4">We design, construct, and renovate residential, commercial, and industrial buildings. Our team ensures every structure is built to the highest standards of quality and durability, tailored to meet the specific needs of our clients.</p>
@@ -419,7 +473,7 @@
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="md:order-2"><img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/787242f1-24e3-4e4b-9178-0e19f85409f0.jpg?auth_key=1886484106-094c9ef977a843db9568fa26d65b2eed-0-08a81303fdea62f0228d982056b3d8c3" alt="Civil Works" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
+                        <div class="md:order-2"><img loading="lazy" src="public/images/civil-works.jpg" alt="Civil Works" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
                         <div class="md:order-1">
                             <h3 class="text-2xl font-bold mb-4 text-secondary">2. Civil Works</h3>
                             <p class="text-graytext mb-4">From road construction to drainage systems, we handle large-scale civil engineering projects with precision. We are equipped to deliver infrastructure that supports community growth and economic development.</p>
@@ -427,7 +481,7 @@
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/900bd1b3-4be4-4eda-90f7-194a4feaea1b.jpg?auth_key=1886484106-c78e59623d9640ae8dccb9753ed61e19-0-26ab5ce14a2395933c756bd253c96d66" alt="Water Works" class="rounded-lg shadow-xl w-full h-72 object-cover">
+                        <img loading="lazy" src="public/images/water-works.jpg" alt="Water Works" class="rounded-lg shadow-xl w-full h-72 object-cover">
                         <div>
                             <h3 class="text-2xl font-bold mb-4 text-secondary">3. Water Works</h3>
                             <p class="text-graytext mb-4">We provide reliable water supply systems, borehole drilling, and drainage solutions for residential and commercial properties. Ensuring access to clean and sustainable water resources is a core part of our infrastructure commitment.</p>
@@ -435,7 +489,7 @@
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="md:order-2"><img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/2308552e-5093-4db3-8275-a7507f0f5df4.jpg?auth_key=1886484106-a2514a7e5552453b94fb3069aa35b051-0-816ef4517eed8262ad5801eaa4989a1e" alt="Regravelling" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
+                        <div class="md:order-2"><img loading="lazy" src="public/images/regravelling.jpg" alt="Regravelling" class="rounded-lg shadow-xl w-full h-72 object-cover"></div>
                         <div class="md:order-1">
                             <h3 class="text-2xl font-bold mb-4 text-secondary">4. Regravelling</h3>
                             <p class="text-graytext mb-4">We offer professional regravelling services to restore and maintain gravel roads and pathways. This service improves accessibility, prevents erosion, and extends the lifespan of rural and estate road networks.</p>
@@ -448,7 +502,7 @@
 
         <!-- ==================== PROJECTS PAGE ==================== -->
         <section id="page-projects" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/0d162881-ea80-4407-8deb-1779224a358b.jpg?auth_key=1886482353-bc7dd9b17f774398975216e1389e10ba-0-bc0e4fe9124e308ee3e6d86572bf0137'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/images/residential-apartments-in-vok.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Our Projects</h1>
             </div>
             <div class="py-20 bg-gray-50">
@@ -459,96 +513,100 @@
                         <button onclick="filterProjects('ongoing', this)" class="filter-btn bg-white text-dark px-6 py-2 rounded-full shadow mb-2">Ongoing</button>
                     </div>
                     <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/0d162881-ea80-4407-8deb-1779224a358b.jpg?auth_key=1886482353-bc7dd9b17f774398975216e1389e10ba-0-bc0e4fe9124e308ee3e6d86572bf0137" class="w-full h-full object-cover" alt="Residential Apartments in V.O.K">
+                        
+                        <!-- 12 Completed Projects -->
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/residential-apartments-in-vok.jpg'], 'Residential Apartments in V.O.K')">
+                            <img loading="lazy" src="public/images/residential-apartments-in-vok.jpg" class="w-full h-full object-cover" alt="Residential Apartments in V.O.K">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartments in V.O.K</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/a655bbd1-2bc9-40f1-98bf-8192f302fff6.png?auth_key=1886485026-7c0f17f4f74f4c73acb61be7a63b1223-0-c1db1204b77761610f3988a916f1c18e" class="w-full h-full object-cover" alt="Athi River Safaricom Pension Scheme">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/athi-river-safaricom-pension-scheme.png'], 'Athi River Safaricom Pension Scheme')">
+                            <img loading="lazy" src="public/images/athi-river-safaricom-pension-scheme.png" class="w-full h-full object-cover" alt="Athi River Safaricom Pension Scheme">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Athi River Safaricom Pension Scheme</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Athi River Safaricom Pension Scheme</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/3b21e125-89ed-4b88-b982-a0f74c663c96.jpg?auth_key=1886387143-f5452c55bebc48f18a04e0e630503f11-0-7882488ac9347c21705c8ba5229efd9b" class="w-full h-full object-cover" alt="Bungalow in Vipingo">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/bungalow-in-vipingo.jpg'], 'Bungalow in Vipingo')">
+                            <img loading="lazy" src="public/images/bungalow-in-vipingo.jpg" class="w-full h-full object-cover" alt="Bungalow in Vipingo">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Bungalow in Vipingo</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Bungalow in Vipingo</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/8e616988-903a-4de2-86e0-316bdc2ecab9.jpg?auth_key=1886482353-0d59f9568b64487b86672efea4452aa8-0-d2daf58c75c5f9f8416535c22263dbc1" class="w-full h-full object-cover" alt="Mansionettes in Vipingo">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/mansionettes-in-vipingo.jpg'], 'Mansionettes in Vipingo')">
+                            <img loading="lazy" src="public/images/mansionettes-in-vipingo.jpg" class="w-full h-full object-cover" alt="Mansionettes in Vipingo">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionettes in Vipingo</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionettes in Vipingo</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/ab1cce35-166d-4d53-8fa1-37adfca9afd2.png?auth_key=1886484106-36965eb2bb03485daf174b78ec83129a-0-1781137ef36ac8642ebba677d3369288" class="w-full h-full object-cover" alt="Vipingo Palm Bridge Apartments">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/vipingo-palm-bridge-apartments.png'], 'Vipingo Palm Bridge Apartments')">
+                            <img loading="lazy" src="public/images/vipingo-palm-bridge-apartments.png" class="w-full h-full object-cover" alt="Vipingo Palm Bridge Apartments">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Vipingo Palm Bridge Apartments</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Vipingo Palm Bridge Apartments</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/b453da01-053d-4e36-8159-e46bdb55e252.jpg?auth_key=1886482353-c46055e4afb040e88a920091754ea83d-0-bc181b84d0fda2cadb1b107f38858ebe" class="w-full h-full object-cover" alt="Albert menzer at Shela Lamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/albert-menzer-at-shela-lamu.jpg'], 'Albert menzer at Shela Lamu')">
+                            <img loading="lazy" src="public/images/albert-menzer-at-shela-lamu.jpg" class="w-full h-full object-cover" alt="Albert menzer at Shela Lamu">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Albert menzer at Shela Lamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Albert menzer at Shela Lamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/1b741f7b-d7bc-4073-8c78-caecc4044cc1.jpg?auth_key=1886387143-508deba24eaf4352addf7375af468110-0-4a5bae0605e957468e3ba32925a3c786" class="w-full h-full object-cover" alt="Swimming Pool for Mr. Rama in Lamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/pool.jpg'], 'Swimming Pool for Mr. Rama in Lamu')">
+                            <img loading="lazy" src="public/images/pool.jpg" class="w-full h-full object-cover" alt="Swimming Pool for Mr. Rama in Lamu">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Swimming Pool for Mr. Rama in Lamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Swimming Pool for Mr. Rama in Lamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/bc304f1b-9ae8-4a64-8910-eeafc917cf98.jpg?auth_key=1886387143-f001d550ecb044198765f3a3c6442999-0-8142469b525ff1ecefd63ed10eb75048" class="w-full h-full object-cover" alt="Mansionate in Vipingo">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/mansionate.jpg'], 'Mansionate in Vipingo')">
+                            <img loading="lazy" src="public/images/mansionate.jpg" class="w-full h-full object-cover" alt="Mansionate in Vipingo">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionate in Vipingo</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Mansionate in Vipingo</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/c0b5e8c8-7589-4781-9dc5-a48206c11a99.jpg?auth_key=1886387143-53c4784196cd440e9468a869e97a7d04-0-af44d05008805969cff42ffcc1b68632" class="w-full h-full object-cover" alt="Terrazzo done in Watamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/terrazzo-done-in-watamu.jpg'], 'Terrazzo done in Watamu')">
+                            <img loading="lazy" src="public/images/terrazzo-done-in-watamu.jpg" class="w-full h-full object-cover" alt="Terrazzo done in Watamu">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo done in Watamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo done in Watamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/f9a34c57-c407-46e0-b581-c9fdd43a9ed4.jpg?auth_key=1886387143-28dcce1ed57e45de9bbd8d3e6754d08c-0-72d7a3a032f149867131a902d7e9c715" class="w-full h-full object-cover" alt="Terrazzo Finishing in Watamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/terrazzo-finishing-in-watamu.jpg'], 'Terrazzo Finishing in Watamu')">
+                            <img loading="lazy" src="public/images/terrazzo-finishing-in-watamu.jpg" class="w-full h-full object-cover" alt="Terrazzo Finishing in Watamu">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo Finishing in Watamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Terrazzo Finishing in Watamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/9bf2bc58-9d38-40f3-af47-cbce718e36cc.jpg?auth_key=1886387143-75df6e10cae44ee3b38e49157a1db885-0-b49ed0891b4cbecad1417bcbebfbad98" class="w-full h-full object-cover" alt="NIRU done in Watamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/niru-done-in-watamu.jpg'], 'NIRU done in Watamu')">
+                            <img loading="lazy" src="public/images/niru-done-in-watamu.jpg" class="w-full h-full object-cover" alt="NIRU done in Watamu">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">NIRU done in Watamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">NIRU done in Watamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="completed">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Pension Scheme">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="completed" onclick="openLightbox(['public/images/pension-scheme.jpg'], 'Pension Scheme')">
+                            <img loading="lazy" src="public/images/pension-scheme.jpg" class="w-full h-full object-cover" alt="Pension Scheme">
                             <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Completed</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Pension Scheme</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Pension Scheme</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
 
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/d309cae9-23d7-4f5a-9761-420f30b0c38f.jpg?auth_key=1886387143-2afeed289a8049d6bae98aa524d4cdc6-0-248a1cd35a3dff1b0a665c7e6371baef" class="w-full h-full object-cover" alt="Nlru Work In Watamu">
+                        <!-- 6 Ongoing Projects -->
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/residential-apartment-in-vok.jpg','public/images/residential-apartment-in-vok-1.jpg','public/images/residential-apartment-in-vok-5.jpg','public/images/residential-apartment-in-vok-2.jpg','public/images/residential-apartment-in-vok-4.jpg','public/images/residential-apartment-in-vok-3.jpg','public/images/vok.jpg'], 'Residential Apartment in V.O.K')">
+                            <img loading="lazy" src="public/images/vok.jpg" class="w-full h-full object-cover" alt="Residential Apartment in V.O.K">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Nlru Work In Watamu</h4></div>
+                            <div class="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full z-10 flex items-center"><i class="fas fa-images mr-1"></i> 7 Photos</div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartment in V.O.K</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view gallery</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/c4b6e986-b638-458f-801e-87d04929869d.jpg?auth_key=1886387143-171ae7be63204fdcbd601051c21cf403-0-64166c4be52c52623d3b9c8e368e541b" class="w-full h-full object-cover" alt="Gate House Vipingo">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/nlru-work-in-watamu.jpg'], 'Nlru Work In Watamu')">
+                            <img loading="lazy" src="public/images/nlru-work-in-watamu.jpg" class="w-full h-full object-cover" alt="Nlru Work In Watamu">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Gate House Vipingo</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Nlru Work In Watamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/98f435af-189c-4688-9b0a-9be2a1ef02d9.jpg?auth_key=1886387143-659436eb66af45b5a3bc600268c03113-0-9c8992b829471001252759b4cfadfc95" class="w-full h-full object-cover" alt="Residential Apartment in V.O.K">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/gate-house-vipingo.jpg'], 'Gate House Vipingo')">
+                            <img loading="lazy" src="public/images/gate-house-vipingo.jpg" class="w-full h-full object-cover" alt="Gate House Vipingo">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Apartment in V.O.K</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Gate House Vipingo</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/d02999e9-ecde-4153-a6c9-07dd7a576ffc.jpg?auth_key=1886387143-e572eceb2c8043beb4cd0e0180f2d827-0-94abfd25668f4cb3f33e4f16ae261cc3" class="w-full h-full object-cover" alt="Residential Pool in Watamu">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/residential-pool-in-watamu.jpg'], 'Residential Pool in Watamu')">
+                            <img loading="lazy" src="public/images/residential-pool-in-watamu.jpg" class="w-full h-full object-cover" alt="Residential Pool in Watamu">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Pool in Watamu</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Residential Pool in Watamu</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/9f7105aa-795a-4084-a060-6163636225f6.jpg?auth_key=1886387476-d020721b829145688a3d56c9524bc99d-0-eda93f6e614c8f7466665fcc87b59ef4" class="w-full h-full object-cover" alt="Adu Catholic Missionary Nursery School">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/adu-catholic-missionary-nursery-school.jpg'], 'Adu Catholic Missionary Nursery School')">
+                            <img loading="lazy" src="public/images/adu-catholic-missionary-nursery-school.jpg" class="w-full h-full object-cover" alt="Adu Catholic Missionary Nursery School">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Catholic Missionary Nursery School</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Catholic Missionary Nursery School</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
-                        <div class="project-item relative rounded-lg overflow-hidden group h-64" data-status="ongoing">
-                            <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/61001b18-7ca9-4218-b6e7-293971a66e6a.jpg?auth_key=1886387476-5cde082a27c4407eaa09db83ab626bbf-0-6336c45e0504ff9cd84cacc07a5b1a8b" class="w-full h-full object-cover" alt="Adu Consolata Parish Priest House">
+                        <div class="project-item relative rounded-lg overflow-hidden group h-64 cursor-pointer" data-status="ongoing" onclick="openLightbox(['public/images/adu-consolata-parish-priest-house.jpg'], 'Adu Consolata Parish Priest House')">
+                            <img loading="lazy" src="public/images/adu-consolata-parish-priest-house.jpg" class="w-full h-full object-cover" alt="Adu Consolata Parish Priest House">
                             <div class="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">Ongoing</div>
-                            <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Consolata Parish Priest House</h4></div>
+                            <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition"><h4 class="text-white text-xl font-bold text-center px-4">Adu Consolata Parish Priest House</h4><p class="text-white text-sm mt-2"><i class="fas fa-camera mr-1"></i> Click to view photo</p></div>
                         </div>
                     </div>
                 </div>
@@ -557,14 +615,14 @@
 
         <!-- ==================== NEWS PAGE ==================== -->
         <section id="page-news" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/0949ca55-7d0a-4683-ac39-d7d43d4e3a02.png?auth_key=1886484106-f27d64a3f7134b75ad4aaccce795ba40-0-c13bce29e42f99b4343768660f598fc2'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/images/civil-works.png'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">News & Updates</h1>
             </div>
             <div class="py-20 bg-gray-50">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                     
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/1c3e9f95-648d-43d3-902a-bfc6c881d903.jpeg?auth_key=1886482353-7f152829848d4d1a89b6397437173824-0-a0947ccc5d121f5bc49a44c0dfd20ed1" class="w-full h-64 object-cover" alt="Contractor Matters">
+                        <img loading="lazy" src="public/images/contractor-matters.jpg" class="w-full h-64 object-cover" alt="Contractor Matters">
                         <div class="p-6">
                             <div class="flex items-center text-sm text-gray-500 mb-3">
                                 <i class="far fa-calendar-alt mr-2 text-primary"></i> Nov 14, 2020
@@ -573,15 +631,15 @@
                             </div>
                             <h3 class="font-bold text-2xl mb-4 text-dark">Why Choosing the Right Contractor Matters for Your Dream Home</h3>
                             <div class="accordion-content text-graytext">
-                                <p class="mb-4"><strong class="text-dark">Introduction:</strong> Building a home is one of the most important investments you’ll ever make. It is a journey that requires significant financial and emotional commitment. But the success of that project depends largely on the contractor you choose. At Sallysam Limited, we believe that a good home isn’t just built with bricks and mortar—it’s built with trust, quality, and unwavering expertise.</p>
+                                <p class="mb-4"><strong class="text-dark">Introduction:</strong> Building a home is one of the most important investments youâ€™ll ever make. It is a journey that requires significant financial and emotional commitment. But the success of that project depends largely on the contractor you choose. At Sallysam Limited, we believe that a good home isnâ€™t just built with bricks and mortarâ€”itâ€™s built with trust, quality, and unwavering expertise.</p>
                                 <p class="font-bold text-dark mb-2">Key Points:</p>
                                 <ul class="list-disc list-inside space-y-2 mb-4">
                                     <li><strong>Experience Counts:</strong> An experienced contractor understands how to manage time, budget, and quality, foreseeing potential issues before they become costly problems.</li>
                                     <li><strong>Quality Assurance:</strong> The right contractor uses durable materials and skilled workmanship, ensuring that every phase of construction meets the highest industry standards.</li>
                                     <li><strong>Peace of Mind:</strong> Professional contractors ensure compliance with safety and legal standards, handling all the complex permits and inspections so you don't have to.</li>
-                                    <li><strong>Sallysam’s Advantage:</strong> With years of experience in general building, we provide reliable, customized solutions that turn houses into homes, delivered on time and within budget.</li>
+                                    <li><strong>Sallysamâ€™s Advantage:</strong> With years of experience in general building, we provide reliable, customized solutions that turn houses into homes, delivered on time and within budget.</li>
                                 </ul>
-                                <p><strong class="text-dark">Conclusion:</strong> When it comes to building your dream home, don’t settle for less. Work with Sallysam Limited for a smooth, transparent, and high-quality construction journey that brings your vision to life.</p>
+                                <p><strong class="text-dark">Conclusion:</strong> When it comes to building your dream home, donâ€™t settle for less. Work with Sallysam Limited for a smooth, transparent, and high-quality construction journey that brings your vision to life.</p>
                             </div>
                             <button onclick="toggleAccordion(this)" class="mt-6 text-primary font-semibold hover:underline flex items-center transition">
                                 <span class="btn-text">Read Full Article</span> <i class="fas fa-chevron-down ml-2 transition"></i>
@@ -590,7 +648,7 @@
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img loading="lazy" src="https://z-cdn-media.chatglm.cn/files/0949ca55-7d0a-4683-ac39-d7d43d4e3a02.png?auth_key=1886484106-f27d64a3f7134b75ad4aaccce795ba40-0-c13bce29e42f99b4343768660f598fc2" class="w-full h-64 object-cover" alt="Civil Works">
+                        <img loading="lazy" src="public/images/civil-works.png" class="w-full h-64 object-cover" alt="Civil Works">
                         <div class="p-6">
                             <div class="flex items-center text-sm text-gray-500 mb-3">
                                 <i class="far fa-calendar-alt mr-2 text-primary"></i> Nov 12, 2020
@@ -599,7 +657,7 @@
                             </div>
                             <h3 class="font-bold text-2xl mb-4 text-dark">The Role of Civil Works in Building Better Communities</h3>
                             <div class="accordion-content text-graytext">
-                                <p class="mb-4"><strong class="text-dark">Introduction:</strong> Civil works go beyond roads and bridges—they form the backbone of thriving, functional communities. From the drainage systems that keep our streets safe during heavy rains to the road networks that connect businesses and families, robust infrastructure is essential. At Sallysam Limited, we take pride in delivering civil engineering projects that connect people and boost economic growth.</p>
+                                <p class="mb-4"><strong class="text-dark">Introduction:</strong> Civil works go beyond roads and bridgesâ€”they form the backbone of thriving, functional communities. From the drainage systems that keep our streets safe during heavy rains to the road networks that connect businesses and families, robust infrastructure is essential. At Sallysam Limited, we take pride in delivering civil engineering projects that connect people and boost economic growth.</p>
                                 <p class="font-bold text-dark mb-2">Key Points:</p>
                                 <ul class="list-disc list-inside space-y-2 mb-4">
                                     <li><strong>Road Networks:</strong> Well-constructed roads enhance trade, reduce vehicle wear and tear, and improve accessibility for both residential and commercial areas.</li>
@@ -607,7 +665,7 @@
                                     <li><strong>Community Impact:</strong> Civil works improve mobility, safety, and social development, creating an environment where businesses and families can thrive.</li>
                                     <li><strong>Our Expertise:</strong> From drainage to road regravelling, Sallysam ensures high-quality, long-lasting results using modern engineering techniques and durable materials.</li>
                                 </ul>
-                                <p><strong class="text-dark">Conclusion:</strong> Civil works shape the way communities grow and prosper. By choosing Sallysam Limited, you’re choosing infrastructure that supports progress and enhances the quality of life for generations to come.</p>
+                                <p><strong class="text-dark">Conclusion:</strong> Civil works shape the way communities grow and prosper. By choosing Sallysam Limited, youâ€™re choosing infrastructure that supports progress and enhances the quality of life for generations to come.</p>
                             </div>
                             <button onclick="toggleAccordion(this)" class="mt-6 text-primary font-semibold hover:underline flex items-center transition">
                                 <span class="btn-text">Read Full Article</span> <i class="fas fa-chevron-down ml-2 transition"></i>
@@ -616,14 +674,14 @@
                     </div>
 
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Sustainable Homes">
+                        <img loading="lazy" src="public/images/sustainable-homes.jpg" class="w-full h-64 object-cover" alt="Sustainable Homes">
                         <div class="p-6">
                             <div class="flex items-center text-sm text-gray-500 mb-3">
                                 <i class="far fa-calendar-alt mr-2 text-primary"></i> Nov 10, 2020
                                 <span class="mx-2">|</span>
                                 <i class="far fa-folder mr-2 text-primary"></i> Manufacturing
                             </div>
-                            <h3 class="font-bold text-2xl mb-4 text-dark">Building Sustainable Homes – The Future of Construction in Kenya</h3>
+                            <h3 class="font-bold text-2xl mb-4 text-dark">Building Sustainable Homes â€“ The Future of Construction in Kenya</h3>
                             <div class="accordion-content text-graytext">
                                 <p class="mb-4"><strong class="text-dark">Introduction:</strong> The future of construction is green, and sustainable homes are at the heart of this global shift. As climate patterns change and resources become scarcer, the demand for eco-friendly building practices has never been higher. At Sallysam Limited, we are embracing sustainable construction methods to ensure durability, comfort, and environmental responsibility in all our projects.</p>
                                 <p class="font-bold text-dark mb-2">Key Points:</p>
@@ -633,7 +691,7 @@
                                     <li><strong>Sustainable Materials:</strong> Using durable, locally sourced, low-impact materials reduces waste, lowers carbon footprints, and minimizes transportation costs.</li>
                                     <li><strong>Why It Matters:</strong> Sustainable homes save money on utilities, protect the environment for future generations, and increase the long-term value of the property.</li>
                                 </ul>
-                                <p><strong class="text-dark">Conclusion:</strong> Kenya’s construction industry is rapidly evolving, and Sallysam Limited is leading the way with sustainable solutions that benefit homeowners, communities, and the environment alike.</p>
+                                <p><strong class="text-dark">Conclusion:</strong> Kenyaâ€™s construction industry is rapidly evolving, and Sallysam Limited is leading the way with sustainable solutions that benefit homeowners, communities, and the environment alike.</p>
                             </div>
                             <button onclick="toggleAccordion(this)" class="mt-6 text-primary font-semibold hover:underline flex items-center transition">
                                 <span class="btn-text">Read Full Article</span> <i class="fas fa-chevron-down ml-2 transition"></i>
@@ -647,7 +705,7 @@
 
         <!-- ==================== CONTACT PAGE ==================== -->
         <section id="page-contact" class="page-view">
-            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop'); background-size: cover;">
+            <div class="relative h-[40vh] min-h-[300px] flex items-center justify-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/images/image-1.jpg'); background-size: cover;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
             </div>
             <div class="py-20 bg-white">
@@ -704,9 +762,8 @@
     <footer class="bg-secondary text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12 mb-12">
             <div>
-                <img src="https://z-cdn-media.chatglm.cn/files/9e57a8a8-1bf6-46c8-b43e-70170d759564.png?auth_key=1886482353-4b38c6f00cfc4390bfd4495558d4ff85-0-45b93ee4c77eea457f4e320469b41088" alt="Sally Samm Logo" class="h-16 w-auto mb-4 brightness-0 invert">
+                <img src="public/images/sally-samm-logo.png" alt="Sally Samm Logo" class="h-16 w-auto mb-4 brightness-0 invert">
                 <p class="text-sm text-gray-300">Sallysam Limited is a trusted construction and contracting company based in Mombasa, Kenya.</p>
-                <!-- Updated Social Links -->
                 <div class="flex space-x-4 mt-4">
                     <a href="https://www.facebook.com/share/1C6hfY156Y/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition"><i class="fab fa-facebook-f text-xl"></i></a>
                     <a href="https://www.instagram.com/sallysam_limited?igsh=MTg5eGh6cGF0NzFi" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
@@ -740,7 +797,7 @@
         <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-center items-center gap-2 text-center text-gray-400 text-sm px-4">
             <p>Copyright &copy; <span id="year"></span> Sally Samm Limited. All Rights Reserved.</p>
             <span class="hidden sm:inline">|</span>
-            <p>Designed & Developed by <a href="https://Dw33pY.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Dw33pY</a></p>
+            <p>Designed & Developed by <a href="https://diradigital.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">DiraDigital</a> x <a href="https://Dw33pY.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">Dw33pY</a></p>
         </div>
     </footer>
 
@@ -873,6 +930,70 @@
                 }
             });
         }
+
+        // --- Lightbox Gallery ---
+        let currentGallery = [];
+        let currentPhotoIndex = 0;
+
+        function openLightbox(photos, title) {
+            currentGallery = photos;
+            currentPhotoIndex = photos.length - 1; // Start from the last (most recent) photo
+            document.getElementById('lightbox-title').textContent = title;
+            renderThumbnails();
+            showPhoto(currentPhotoIndex);
+            document.getElementById('lightbox').classList.add('open');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function showPhoto(index) {
+            if (index < 0) index = currentGallery.length - 1;
+            if (index >= currentGallery.length) index = 0;
+            currentPhotoIndex = index;
+            
+            document.getElementById('lightbox-img').src = currentGallery[index];
+            document.getElementById('lightbox-counter').textContent = `${index + 1} / ${currentGallery.length}`;
+            
+            // Update thumbnail active state
+            document.querySelectorAll('#lightbox-thumbnails img').forEach((thumb, i) => {
+                if (i === index) thumb.classList.add('active');
+                else thumb.classList.remove('active');
+            });
+        }
+
+        function changePhoto(direction) {
+            showPhoto(currentPhotoIndex + direction);
+        }
+
+        function renderThumbnails() {
+            const container = document.getElementById('lightbox-thumbnails');
+            container.innerHTML = '';
+            currentGallery.forEach((url, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = url;
+                thumb.onclick = () => showPhoto(index);
+                if (index === currentPhotoIndex) thumb.classList.add('active');
+                container.appendChild(thumb);
+            });
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').classList.contains('open')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changePhoto(-1);
+                if (e.key === 'ArrowRight') changePhoto(1);
+            }
+        });
 
         // --- News Accordion ---
         function toggleAccordion(btn) {
